@@ -1,0 +1,2 @@
+resources : https://github.com/karthikncode/nlp-datasets
+            https://github.com/awesomedata/awesome-public-datasets#natural-language
