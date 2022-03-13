@@ -3,7 +3,6 @@ import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras.preprocessing.text import Tokenizer
 
-
 # # List of sample sentences that we want to tokenize
 # # sentences = ['I love my dog',
 # #              'I love my cat',

@@ -14,11 +14,11 @@ import json
 # data_df.to_csv(outputFile)
 
 #
-# sentences = []
-# data = []
-# with codecs.open('IMDB.json', 'r', 'utf-8') as f:
-#     for item in f:
-#         pprint(item)
+sentences = []
+data = []
+with codecs.open('IMDB.json', 'r', 'utf-8') as f:
+    for item in f:
+        pprint(item)
 
-df = pd.read_json('IMDB.json', lines=True)
-pprint(df['plot_synopsis'])
+# df = pd.read_json('IMDB.json', lines=True)
+# pprint(df['plot_synopsis'])

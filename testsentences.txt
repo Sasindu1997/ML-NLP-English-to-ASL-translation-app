@@ -1,0 +1,1 @@
+{"id": "1", "text": "Go to the dining room. Click on the cabinet to take the whisky bottle."}, {"id": "2", "text": "Go to the kitchen. Click on the fridge. Jason gets a lemonade."}
