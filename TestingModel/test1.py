@@ -7,5 +7,8 @@ Input = "These are short, famous texts in English from classic sources like the 
             "English. The Bible, for example, is a translation. But they are all well known in English today and many " \
             "of them express beautiful thoughts "
 
-result = testModelFunc(Input);
-print(result.pop(0))
+Input2 = 'I am going to home.'
+
+result = testModelFunc(Input2);
+print("result");
+print(result);

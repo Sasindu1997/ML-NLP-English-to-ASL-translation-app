@@ -4,6 +4,7 @@ from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 import string
 
+
 # Input = "These are short, famous texts in English from classic sources like the Bible or Shakespeare. Some texts " \
 #             "have word definitions and explanations to help you. Some of these texts are written in an old style of " \
 #             "English. Try to understand them, because the English that we speak today is based on what our great, " \
@@ -57,7 +58,6 @@ import string
 # #
 # print(pos_tagged_text)
 
-
 def testModelFunc(textInput):
     queue = []
     #
@@ -69,7 +69,7 @@ def testModelFunc(textInput):
     # cleaned_text - remove punctuation
     #
     cleaned_text = lower_case_text.translate(str.maketrans('', '', string.punctuation))
-    # print(cleaned_text)
+    print(cleaned_text)
 
     #
     # tokenizing - sentence tokenizing, word tokenizing
@@ -80,34 +80,37 @@ def testModelFunc(textInput):
     # provide language to remove stopwords
     #
     stop_words = set(stopwords.words("English"))
+    stop_words = ['am', 'is', 'are', 'the', 'a']
     # print(stop_words)
 
     #
     # remove stopwords
-    #
+    # #
     filtered_sentence = [w for w in tokenized_text if not w in stop_words]
     # print(filtered_sentence)
+    # #
 
-    #
     # add pos tagging
     #
-    pos_tagged_text = nltk.pos_tag(filtered_sentence)
+    # pos_tagged_text = nltk.pos_tag(filtered_sentence)
 
     #
     # stemming
     #
     ps = PorterStemmer()
-
-    # for w in tokenized_text:
-    #     print(ps.stem(w))
+    # for w in filtered_sentence:
+    #     w = ps.stem(w)
 
     #
     # output
     #
-    # print(pos_tagged_text)
-    for x in pos_tagged_text:
-        queue.append(x)
+    # build a queue array for outputs
+    for x in filtered_sentence:
+        w = ps.stem(x)
+        queue.append(w)
 
     return queue
 
-
+# textInput = "I am going home."
+#
+# testModelFunc(textInput);
