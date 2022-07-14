@@ -3,7 +3,9 @@ from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 import string
-
+import os
+import tensorflow as tf
+from tensorflow import keras
 
 # Input = "These are short, famous texts in English from classic sources like the Bible or Shakespeare. Some texts " \
 #             "have word definitions and explanations to help you. Some of these texts are written in an old style of " \
@@ -65,6 +67,12 @@ def testModelFunc(textInput):
     #
     lower_case_text = textInput.lower()
 
+
+    #
+    # cleaned_text - remove punctuation
+    #
+    new_model = tf.keras.models.load_model(r'C:\Users\DELL\Desktop\RP\ML-NLP-Model-for-English-to-ASL-translation\TestingModel\text_processing_model.h5')
+
     #
     # cleaned_text - remove punctuation
     #
@@ -81,7 +89,7 @@ def testModelFunc(textInput):
     #
     stop_words = set(stopwords.words("English"))
     stop_words = ['am', 'is', 'are', 'the', 'a']
-    # print(stop_words)
+    print(stop_words, new_model)
 
     #
     # remove stopwords

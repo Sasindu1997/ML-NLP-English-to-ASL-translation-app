@@ -9,8 +9,8 @@ for item in db:
     print(item)
 
 
-def viewAllSigns():
-    for data in db:
-        queue.append(data)
-
-    return queue
+# def viewAllSigns():
+#     for data in db:
+#         queue.append(data)
+#
+#     return queue

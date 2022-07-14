@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161079469-1"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-161079469-1');
+  </script>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" type="image/png" href="./admin/images/play.png" />
+  <title>Eduscope</title>
+  <script src="./admin/js/jquery.min.js"></script>
+  <script src="./admin/js/jquery-ui.js"></script>
+  <script src="../admin/js/bootstrap.min.js"></script>
+  <script src="./normal/js/Chart.bundle.js"></script>
+
+  <!--script src="./admin/js/dash.all.min.js"></script-->
+  <!--script src="http://cdn.dashjs.org/latest/dash.all.min.js"></script-->
+  <!--script src="https://cdn.jsdelivr.net/npm/hls.js@latest/dist/hls.min.js"></script-->
+  <script src="./admin/js/hls.min.js"></script>
+  <!-- Bootstrap core CSS-->
+  <!--link href="./normal/vendor/bootstrap/css/bootstrap.css" rel="stylesheet"-->
+  <link href="../admin/css/bootstrap.css" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="./normal/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Page level plugin CSS-->
+  <link href="./normal/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="./normal/css/sb-admin.css" rel="stylesheet">
+  <link rel="stylesheet" href="./normal/css/jquery-ui.min.css" type="text/css" />
+
+  <link rel="stylesheet" href="./admin/css/style_v2.css">
+  <style>
+  body.preloader-site {
+    overflow: hidden;
+  }
+
+  .preloader-wrapper {
+    height: 100%;
+    width: 100%;
+    background-color:rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999999;
+  }
+
+  .preloader-wrapper .preloader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 100px;
+  }
+
+  .start-wrapper {
+    height: 100%;
+    width: 25%;
+    background-color:rgba(0,0,0,0.5);
+    z-index: 9999995;
+    position: absolute;
+    top: 50%;
+    left: 38%;
+  }
+
+  .msg-wrapper {
+    height: 100%;
+    width: 100%;
+    background-color:rgba(0,0,0,0.5);
+    position: fixed;
+    top: 40%;
+    left: 25%;
+    z-index: 9999995;
+  }
+
+  .modal-body {padding-top:10px!important;}
+
+  .fixed-top{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+  }
+
+  .mobilestyleplayer{
+    /*padding: 10px;*/
+  }
+
+  .mobile{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #7C879D;
+    position:relative;
+    top: -15px;
+    right: 10px;
+    text-align: left;
+    text-decoration: none;
+  }
+
+  .mobile:hover{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.75);
+    position:relative;
+    top: -15px;
+    right: 10px;
+    text-align: left;
+    text-decoration: none;
+  }
+
+  .nomobile{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #7C879D;
+    position:relative;
+    top: -25px;
+    right: 10px;
+    text-align: left;
+    text-decoration: none;
+  }
+
+  .nomobile:hover{
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+  }
+
+  input[type='radio'] { display: none; }                /* hide radio buttons */
+  input + label { display: inline-block } /* show labels in line */
+  input ~ .tab { display: none }          /* hide contents *//* show contents only for selected tab */
+  #tab1:checked ~ .tab.content1,
+  #tab2:checked ~ .tab.content2 { display: block; }
+
+  input + label {             /* box with rounded corner */
+    border: 1px solid #999;
+    background: #EEE;
+    padding: 4px 12px;
+    border-radius: 4px 4px 0 0;
+    position: relative;
+    top: 6px;
+  }
+  input:checked + label {     /* white background for selected tab */
+    background: #FFF;
+    border-bottom: 1px solid transparent;
+  }
+  input ~ .tab {          /* grey line between tab and contents */
+    border-top: 1px solid #999;
+    padding: 12px;
+  }
+
+  #comments{
+    font-family: 'Roboto', sans-serif;
+  }
+
+  #comments h3.post-box-title {
+    color: #000000;
+    font-size: 14px;
+    font-weight: 900;
+    border-bottom-width: 2.5px;
+    border-bottom-style: solid;
+    border-bottom-color: #AAAAAA;
+    margin-top: 35px;
+    margin-bottom: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  #comments h3.post-box-title span{
+    color: #66c1c3;
+  }
+  #comments  ul.comments-list{
+    margin: 0px;
+    padding: 0px;
+    list-style-image: none;
+    list-style-type: none;
+  }
+  .comments_style {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #e6e8e8;
+    margin-bottom: 10px;
+    padding: 20px;
+  }
+  .reply_style {
+    /*border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: #e6e8e8;*/
+    margin-bottom: 10px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 40px;
+    list-style-image: none;
+    list-style-type: none;
+  }
+  #comments  ul.comments-list li a.reply{
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #66c0c2;
+    text-decoration: none;
+  }
+  #comments  ul.comments-list li .post_author{
+    margin-bottom: 10px;
+    /*text-transform: uppercase;*/
+  }
+  #comments  ul.comments-list li .post_author a.author-name{
+    font-size: 14px;
+    font-weight: bold;
+    color: #6f6f6f;
+    display: block;
+    text-transform: uppercase;
+  }
+  #comments  ul.comments-list li .post_author time{
+    font-size: 12px;
+    color: #bbb8b9;
+  }
+  #comments  ul.comments-list li .post_author:after{
+    content:" ";
+    display: block;
+    clear: both;
+    width: 100%;
+  }
+  #comments ul.comments-list li .post_author .img_in{
+    float: left;
+    height: 45px;
+    width: 45px;
+    margin-right: 15px;
+    -webkit-border-radius: 45px;
+    -moz-border-radius: 45px;
+    border-radius: 45px;
+    overflow: hidden;
+  }
+  #comments  ul.comments-list li p{
+  }
+  #comments  ul.children{
+    margin-left: 10px;
+  }
+  #comments .form-control{
+    border-radius: 0px;
+    -webkit-box-shadow:none;
+  }
+  #comments  .btn-dm{
+    border-radius: 0px;
+    color: #FFF;
+    text-decoration: none;
+    background-color: #66c0c2;
+    margin-top: 20px;
+  }
+  .card {
+    position: relative;
+    display: inline-block;
+  }
+  .card .img-top {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+  }
+      .card:hover .img-top {
+      display: inline;
+      }      </style>
+      </head>
+
+<body id="page-top">
+
+  <nav id="navbar" class="navbar navbar-expand navbar-dark bg-dark fixed-top" style="border-radius:0; height:67px;">
+    <div  style="color:#FFFFFF; font-size:20px;">
+      <a class="navbar-brand mr-1" href="index.php"><img src="./normal/img/logo_invert.png" style="width:170px; margin-top:-5px;"></a><span style="top:18px;position: relative;"> - Player</span>
+
+    </div>
+
+    <!-- Navbar Search -->
+    <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+      <div class="input-group">
+
+      </div>
+    </form>
+
+    <!-- Navbar -->
+    <ul class="navbar-nav" style="float:right; position:absolute; right: 0px;">
+      <li class="nav-item" style="right: 0; left: auto ;list-style: none;">
+                  <a class="nav-link nomobile" href="https://lecturecapture.sliit.lk/">Video Portal</a>
+        </li>
+                <li class="nav-item dropdown " style="right: 0; left: auto;">
+          <a class="nav-link nomobile" href="logout.php"  id="dropdown08" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i>  (Logout)</a>
+        </li>
+            </ul>
+  </nav>
+
+  <div id="wrapper">
+    <div id="content-wrapper">
+      <div class="container"  >
+                  <br><br><br><br>
+                <!-- Player Code -->
+                    <script type="text/javascript">window.location="login.php";</script>
+                      <div class="col-md-12">
+            <h2>Lecture 01 - Dart and Introduction to Flutter <small>SE4010 : Current Trends in Software Engineering - <small>Personal_Capture&nbsp;2022-02-13</small></small></h2>
+                          <br>
+            </div>
+
+            
+              <div class="preloader-wrapper">
+                <div class="preloader">
+                  <img src="./normal/img/preloader.gif" alt="Loading">
+                </div>
+              </div>
+              <img id="img" style="display:none;">
+
+              <div id="video-container">
+                <iframe class="col-md-12" frameBorder="0" id="eplayer_iframe" onload="iframeLoaded()" style="width:100%;" src="./new_player/eplayer/?id=SmVhakgwc2toRV8zNDI5NQ=="></iframe>
+
+                
+                <div id="video-controls-page" class="col-md-12" style="margin-top:20px; z-index:1000;">
+                  
+                <!-- // Comments -->
+                                <div class="col-md-12" id="react_div">
+                  <!--center>
+                  <a href="https://www.mozilla.org/en-US/firefox/new/" target="_blank"><img src="./admin/images/firefox.png" style="width:25px">&nbsp;If you are experiencing interruptions during playback, kindly switch to Firefox browser</a>
+                </center>
+                <hr-->
+                <center>
+                  <label class="card">
+                    <input type="radio" name="react_l" id="react_l-1" value="like" onclick="add_lecture_react();"  >
+                    <img id="nlimg" src="./admin/images/nlike.png" style="width:25px; cursor:pointer;" class=""><img id="limg" src="./admin/images/like.png" class="img-top" style="width:25px; cursor:pointer;">&nbsp;<span id="lcnt" style="cursor:pointer;">6</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </label>
+
+                  <label class="card">
+                    <input type="radio" name="react_l" id="react_l-2" value="happy" onclick="add_lecture_react();"  >
+                    <img id="nhimg" src="./admin/images/nhappy.png" class="" style="width:25px; cursor:pointer;"><img id="himg" src="./admin/images/happy.png" class="img-top" style="width:25px; cursor:pointer;">&nbsp;<span id="hcnt" style="cursor:pointer;">5</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </label>
+
+                  <label class="card">
+                    <input type="radio" name="react_l" id="react_l-3" value="confused" onclick="add_lecture_react();"  >
+                    <img id="ncimg" src="./admin/images/nconfused.png" class="" style="width:28px; cursor:pointer;"><img id="cimg" src="./admin/images/confused.png" class="img-top" style="width:28px; cursor:pointer;">&nbsp;<span id="ccnt" style="cursor:pointer;">0</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </label>
+
+                </center>
+                <hr>
+              </div>
+
+              <span class="pull-right" style="cursor:pointer; color:blue;" onclick="$('#infodiv').toggle('slow');">Show/Hide Info</span><br>
+              <div id="infodiv">
+                The following icons are personalized bookmarks for you to refer later. Double click to delete.<br>
+                <button type="button" style="margin:5px"> <img style="height:32px; width:auto;" src="./admin/images/ss.png"> </button> - Important&nbsp;&nbsp;&nbsp;
+
+                <button type="button" style="margin:5px"> <img style="height:32px; width:auto;" src="./admin/images/qq.png"> </button> - Not clear&nbsp;&nbsp;&nbsp;
+
+                <button type="button" style="margin:5px"> <img style="height:32px; width:auto;" src="./admin/images/cc.png"> </button> - Personal note&nbsp;&nbsp;&nbsp;
+
+                <select class="styleSelect mobilestyleplayer">
+                  <option value="0">Low</option>
+                  <!--option value="1">Medium</option-->
+                  <option value="1">High</option>
+                  <option selected="" value="-1">Auto</option>
+                </select> - Adaptive video quality.<br>If you wish to, you may force this to High (720p) resolution and Low (360p) resolution to match your bandwidth.
+                <br>
+                <hr>
+                You may use the discussion option below to discuss about the lecture with your lecturer and fellow students.<br>You will receive an email when there are responses to your post.<br><br>
+              </div>
+
+                            <input type="radio" name="tabs" id="tab1" checked />
+              <label for="tab1">Discussion</label><input type="radio" name="tabs" id="tab2" />
+              <!--label for="tab2" onclick='$("html, body").animate({ scrollTop: $(document).height() }, 10);'>Views</label-->
+
+              <div class="tab content1">
+                <h3 class="post-box-title" id="post_comment_location">Discussion</h3>
+
+                <span id="msg"></span>
+                <textarea class="form-control" rows="3" name="comment" id="comment" placeholder="Type your comment here..."></textarea>
+                <input type="hidden" name="cid" id="cid" value="0"><br>
+                <button type="button" id="comment_submit" class="btn btn-primary" style="width:150px;" onclick="post_comment();">Post Comment</button>
+                <!-- Comments -->
+                <div id="comments" class="post-comments">
+
+                  <ul id="comments_list" class="comments-list">
+                    
+                    </ul>
+                                          <span id="noc"><br>No comments.</span>
+                                        </div>
+                  <!-- // Comments -->
+
+                </div>
+                <div class="tab content2">
+
+                  <div id="chart_div" style="margin-left:-3.5%; ">
+                    <span id="loading_graph" style="display:block;"><img src="./admin/images/loading.jpg" style="width:50px;" width="50px;">&nbsp;&nbsp;Loading</span>
+                    <canvas id="canvas5"></canvas>
+                  </div>
+                </div>
+              </div>
+
+              <div id="datadiv">
+
+
+
+              </div>
+
+                              <!-- Video Controls -->
+                <div id="video-controls" style="display: none; color:#FFFFFF; z-index:500;" >
+                  <div class="row">
+                    <div class="col-md-12">
+
+                      <div id="reactlist" style="position:relative; margin-left:30px; margin-bottom: 20px; width:91.95%;">
+
+                      </div>
+                      <input type="range" step="0.1" id="seek-bar" value="0" style="margin-left:30px; margin-bottom: 10px; width:93%;">
+                    </div>
+                    <div class="col-md-7">
+                      <button type="button" id="play-pause" class="play" title="Play / Pause"><img src="./admin/images/play.png"></button>
+                      &nbsp;&nbsp;
+                      <span id="seek_val" style="color: white;">00:00:00 / 00:00:00</span>
+                      <button type="button" style="margin:5px" id="mute" title="Mute / Unmute"><img src="../admin/images/mute.png"></button>
+                      <input type="range" style="position:relative; top:7px; width:100px;" id="volume-bar" min="0" max="1" step="0.1" value="1" style="margin-bottom: 10px;">
+
+                      <button type="button" title="Click here to add a bookmark" style="margin:5px" onclick="react_get_data('s');"> <img style="height:32px; width:auto;" src="./admin/images/ss.png"> </button>
+                      <button type="button" title="Click here to add a question mark" style="margin:5px" onclick="react_get_data('q');"> <img style="height:32px; width:auto;" src="./admin/images/qq.png"> </button>
+                      <button type="button" data-toggle="modal" onclick="exit_and_show_note();" data-target="#commentModal" title="Click here to add a note" style="margin:5px"> <img style="height:32px; width:auto;" src="./admin/images/cc.png"> </button>
+
+                    </div>
+                    <div id="display_op" class="col-md-5"  align="right" >
+                      <select id="quality" class="styleSelect" title="Video quality" onchange="changeQuality(this.value,'other','./archive/saved/Personal_Capture/2022-02-13/SE4010-Current-Trends-in-Software-Engineering_35950/SE4010-Current-Trends-in-Software-Engineering_35950','');">
+                        <option selected value="0">Low</option>
+                        <!--option value="1">Medium</option-->
+                        <option value="1">High</option>
+                        <option value="-1">Auto</option>
+                      </select>
+                                                                        <button type="button" style="margin:5px" class="full-screen" title="Enter /Exit full screen"><img style="height:32px; width:auto;" src="./admin/images/full.png"></button>
+                                                  <!--button type="button" style="margin:5px" id="hidebar" onclick="hide_tool_bar();"><img src="../admin/images/hide.png"><br>Hide Toolbar  </button-->
+
+
+                        <!-- After add student details, uncomment this -->
+                        <!--button type="button" style="margin:5px" id="hidebar" data-toggle="modal" data-target="#profileModal" title="Edit profile" onclick="exit_and_edit_profile();"><img src="./admin/images/profile.png"></button-->
+
+                        <button type="button" style="margin:5px" id="hidebar" onclick="window.location='logout_player.php';" title="Logout"><img src="./admin/images/logout.png"></button>
+                      </div>
+                    </div>
+
+                  </div>
+                              </div>
+                          <!-- Player Code End -->
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+        <!-- /.content-wrapper -->
+      </div>
+      <!-- /#wrapper -->
+
+      <!-- Scroll to Top Button-->
+      <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+      </a>
+
+      <!-- Please Wait Modal-->
+      <div class="modal fade" id="waitModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <img src="./normal/img/preloader.gif" style="margin-top:20%; margin-left:40%; width:100px;" alt="Loading">
+      </div>
+
+
+      <div id="myModal" class="msg-wrapper modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Warning</h4>
+            </div>
+            <div class="modal-body">
+              Unauthorized Access
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index:1000000000;">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Add Your Note</h4>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <span class="">&nbsp;</span>
+                <textarea id="bookmark_comment" class="form-control" rows="3" placeholder="Enter your note here"></textarea>
+                <input type="hidden" id="reactid">
+              </div>
+              <br><center>
+                <input type="button" name="submit" class="btn btn-primary" style="width:40%;" value="Submit" onclick="react_get_data('c');">
+                <input type="button" id="delbtnnote" name="submit" class="btn btn btn-success" style="width:40%; color:
+                #ffffff;
+                font-size: 14px;
+                height: 50px;
+                line-height: 50px;
+                padding: 0;
+                border-radius: 40px;" value="Remove" onclick="remove_react($('#reactid').val(),'c');"></center>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+        <div class="modal fade" id="reactModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index:1000000000;">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" id="rtitle">Like</h4>
+              </div>
+              <div class="modal-body">
+                <div id="reactedlist"></div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index:1000000000;">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title col-md-6" id="exampleModalLabel">Edit Profile</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="modal-body" style="padding:50px;">
+                <center>
+                  <div class="row">
+                    <h5>Update Personal Details</h5>
+
+                    <form id="form_upload" action="image_upload.php" method="post" enctype="multipart/form-data">
+
+                      <div class="col-md-4"><br>
+                        <img src="./admin/images/profile/profile.png" width="100">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="form-group">
+                          <span class="">&nbsp;</span>
+                          <input type="text" class="form-control inputt" name="name" value="" id="name" placeholder="Name">
+                        </div>
+
+                        <div class="form-group">
+                          <span class="">&nbsp;</span>
+                          <input type="text" class="form-control inputt" name="mobile" value="" id="mobile" maxlength="9" placeholder="Mobile (9 digits)">
+                        </div>
+
+                        <div class="form-group">
+                          <span class="">&nbsp;</span>
+                          <input id="file-upload" name="file-upload" onchange="" type="file" accept="image/*" />
+
+                        </div>
+                        <input type="text" name="id" id="id" value="SmVhakgwc2toRV8zNDI5NQ==" style="display:none;">
+                        <input type="text" name="uid" id="uid" value="" style="display:none;">
+                        <input type="text" name="code" id="code" style="display:none;">
+                        <br>
+                        <input type="button" name="btnSubmit" class="btn btn-primary" style="width:50%;" value="Update" onclick="update_profile();">
+                        <!--input type="submit" name="submit" class="btn btn-primary" style="width:50%;" value="Update"-->
+                      </div>
+
+                    </form><br><br>
+                  </div>
+                  <hr>
+
+                  <div class="row">
+                    <h5>Change Password</h5>
+
+                    <div class="form-group">
+                      <span class="">&nbsp;</span>
+                      <input type="password" class="form-control inputt" name="password" id="password" placeholder="Enter Password">
+                    </div>
+
+                    <div class="form-group">
+                      <span class="">&nbsp;</span>
+                      <input type="password" class="form-control inputt" name="repassword" id="repassword" placeholder="Re Enter Password">
+                    </div>
+                    <br>
+                    <input type="button" name="submit" class="btn btn-primary" style="width:50%;" value="Reset Password" onclick="reset_password();">
+                  </div>
+                </center>
+
+              </div>
+              <div class="modal-footer">
+                <span data-dismiss="modal" style="cursor:pointer;">Cancel</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Please Wait Modal-->
+        <div class="modal fade" id="waitModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <img src="./normal/img/preloader.gif" style="margin-top:20%; margin-left:40%; width:100px;" alt="Loading">
+        </div>
+
+        <script type="text/javascript">
+
+                    window.uname = '';
+                          window.uid = '';
+
+              window.reacted = '';
+              $( document ).ready(function() {
+
+                window.addEventListener("orientationchange", function() {
+                  //                    window.location = window.location;
+
+                  var iFrameID = document.getElementById('eplayer_iframe');
+                  if(iFrameID) {
+                    // here you can make the height, I delete it first, then I make it again
+                    iFrameID.height = "";
+                    setTimeout(function(){
+                      iFrameID.height = iFrameID.contentWindow.document.body.scrollHeight + "px";
+                    },1200);
+                    //                        if(window.innerHeight > window.innerWidth)
+                    //                            iFrameID.height = (iFrameID.contentWindow.document.body.scrollHeight*2)+'px';
+                    //                        else
+                    //                            iFrameID.height = (iFrameID.contentWindow.document.body.scrollHeight/2)+'px';
+
+                  }
+
+
+                }, false);
+
+
+                setTimeout(function() {
+                  $('.preloader-wrapper').hide('fade');
+                }, 2000);
+
+                
+
+              
+                //video_data_views();
+
+                });
+
+function start_play()
+{
+  playstart = 1;
+  $("#btn-start").hide('slow');
+  video.muted = true;
+  video2.muted = true;
+
+  video.play();
+  if(video2.duration>0)
+  video2.play();
+  video.muted = false;
+
+  pp = true;
+  // Update the button text to 'Pause'
+      document.getElementById("play-pause").innerHTML = "<img src='./admin/images/stop.png'>";
+          document.getElementById("play-pause-page").innerHTML = "<img src='./admin/images/stop.png'>";
+
+    }
+    function view_data_seek(vtime)
+{
+  }
+function stop_play_on_start()
+{
+  pp = false;
+  video.pause();
+  video2.pause();
+  // Update the button text to 'Play'
+      document.getElementById("play-pause").innerHTML = "<img src='./admin/images/play.png'>";
+          document.getElementById("play-pause-page").innerHTML = "<img src='./admin/images/play.png'>";
+    }
+
+    function stop_play()
+    {
+      pp = false;
+      video.pause();
+      if(video2.duration>0)
+      video2.pause();
+      // Update the button text to 'Play'
+              document.getElementById("play-pause").innerHTML = "<img src='./admin/images/play.png'>";
+                  document.getElementById("play-pause-page").innerHTML = "<img src='./admin/images/play.png'>";
+        }
+        function play_stop()
+        {
+          if (video.paused == true) {
+            // Play the video
+            video.play();
+            if(video2.duration>0)
+            video2.play();
+            pp = true;
+            // Update the button text to 'Pause'
+                          document.getElementById("play-pause").innerHTML = "<img src='./admin/images/stop.png'>";
+                              document.getElementById("play-pause-page").innerHTML = "<img src='./admin/images/stop.png'>";
+              } else {
+                // Pause the video
+                pp = false;
+                video.pause();
+                if(video2.duration>0)
+                video2.pause();
+                // Update the button text to 'Play'
+                                  document.getElementById("play-pause").innerHTML = "<img src='./admin/images/play.png'>";
+                                      document.getElementById("play-pause-page").innerHTML = "<img src='./admin/images/play.png'>";
+                  }
+                }
+                              function is_mobile(val)
+              {
+                if(Number.isInteger(val) && val.length==9)
+                return true;
+                else
+                return false;
+              }
+
+              function update_profile()
+              {
+                if($("#name").val()=="" || $("#mobile").val()=="")
+                alert("Please enter name and mobile no");
+                else if(isNaN($("#mobile").val()) ||  $("#mobile").val().length!=9)
+                alert("Please enter last 9 digit of your mobile number without first 0");
+                else
+                {
+                  $('#waitModal').modal('show');
+                  $.ajax({
+                    dataType: "json",
+                    url: './admin/store.php',
+                    data: {type:'update_profile',name: encodeURIComponent($("#name").val()), mobile: $("#mobile").val(), id:window.uid},
+                    cache: false,
+                    success: function(data){
+                      if(data['result']=="ok")
+                      {
+                        $("#waitModal").removeClass("in");
+                        $(".modal-backdrop").remove();
+                        $("#waitModal").hide();
+                        //$("#mobile").val('');
+                        //$("#name").val('');
+                        if(data['newn']==1)
+                        {
+                          if(document.getElementById("file-upload").files.length == 0)
+                          window.location = "./verify_email.php?c="+data['code'];
+                          else
+                          {
+                            $("#code").val(data['code']);
+                            $("#form_upload").submit();
+                          }
+                        }
+                        else
+                        {
+
+                          if(document.getElementById("file-upload").files.length !== 0)
+                          {
+                            $("#form_upload").submit();
+                          }
+                          else
+                          {
+                            alert("Profile updated successfully");
+                            $("#profileModal").removeClass("in");
+                            $("#profileModal").hide();
+                          }
+                        }
+
+                      }
+                      else if(data['result']=="mobile")
+                      {
+                        $("#waitModal").removeClass("in");
+                        $(".modal-backdrop").remove();
+                        $("#waitModal").hide();
+                        alert("This mobile number already has an account");
+                      }
+                      else
+                      {
+                        alert("Please try again");
+                        $("#waitModal").removeClass("in");
+                        $(".modal-backdrop").remove();
+                        $("#waitModal").hide();
+                      }
+                    }
+                  });
+                }
+              }
+
+              function reset_password()
+              {
+                if($("#password").val()=="" || $("#repassword").val()=="")
+                alert("Please enter new password");
+                else if($("#password").val()!=$("#repassword").val())
+                alert("Password not match");
+                else
+                {
+                  $('#waitModal').modal('show');
+                  $("#profileModal").removeClass("in");
+                  $("#profileModal").hide();
+                  $.ajax({
+                    dataType: "json",
+                    url: './admin/store.php',
+                    data: {type:'reset_password',pass: encodeURIComponent($("#password").val()), id: window.uid},
+                    cache: false,
+                    success: function(data){
+                      if(data['result']=="ok")
+                      {
+                        $("#waitModal").removeClass("in");
+                        $(".modal-backdrop").remove();
+                        $("#waitModal").hide();
+                        $("#password").val('');
+                        $("#repassword").val('');
+                        alert("Your password changed successfully.");
+                        //window.location = window.location;
+                      }
+                      else
+                      {
+                        alert("Please try again");
+                        $("#waitModal").removeClass("in");
+                        $(".modal-backdrop").remove();
+                        $("#waitModal").hide();
+                      }
+                    }
+                  });
+                }
+              }
+
+              function video_data_views()
+              {
+                                $.ajax({
+                  url: "admin/store.php",
+                  data: { type: 'player_video_data_views_new', vid:'34295'},
+                  dataType: "json",
+                  success: function (data) {
+                    if(window.myLine4)
+                    window.myLine4.destroy();
+
+                                          var legendshow = false;
+                      var dataarr = {
+                        labels: data['adate'],
+                        datasets: [{
+                          label: 'Views',
+                          backgroundColor: 'blue',
+                          borderColor: 'blue',
+                          data: data['aview'],
+                          fill: false,
+                        }]
+                      };
+                                          var config4 = {
+                      type: 'line',
+                      data: dataarr,
+                      options: {
+                        spanGaps: true,
+                        legend: {
+                          display: legendshow
+                        },
+                        responsive: true,
+                        title: {
+                          display: false,
+                          text: ''
+                        },
+                        tooltips: {
+                          mode: 'index',
+                          intersect: false,
+                        },
+                        hover: {
+                          mode: 'nearest',
+                          intersect: true
+                        },
+                        scales: {
+                          xAxes: [{
+                            display: true,
+                            scaleLabel: {
+                              display: true,
+                              labelString: 'Video Time'
+                            }
+                          }],
+                          yAxes: [{
+                            display: true,
+                            scaleLabel: {
+                              display: true,
+                              labelString: 'Views'
+                            },
+                            ticks: {
+                              beginAtZero: true,
+                              callback: function(value) {if (value % 1 === 0) {return value;}}
+                            }
+                          }]
+                        }
+                      }
+                    };
+
+                    document.getElementById('chart_div').style.width = $("#video-controls-p").innerWidth();
+
+                    var ctx4 = document.getElementById('canvas5').getContext('2d');
+                    window.myLine4 = new Chart(ctx4, config4);
+                    $("#loading_graph").hide("slow");
+                  }
+                });
+              }
+
+              
+function exit_and_show_note()
+{
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.mozCancelFullScreen) {
+    document.mozCancelFullScreen();
+  } else if (document.webkitExitFullscreen) {
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) {
+    document.msExitFullscreen();
+  }
+
+  stop_play(); $('#delbtnnote').hide(); $('#comment').val(''); $('#reactid').val('');
+}
+
+function exit_and_edit_profile()
+{
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.mozCancelFullScreen) {
+    document.mozCancelFullScreen();
+  } else if (document.webkitExitFullscreen) {
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) {
+    document.msExitFullscreen();
+  }
+  stop_play();
+}
+
+function post_comment()
+{
+  document.getElementById("comment_submit").disabled = true;
+  document.getElementById("comment_submit").innerHTML = "Please wait...";
+  if($("#comment").val()=="")
+  {
+    alert("Please enter your comment");
+    document.getElementById("comment_submit").disabled = false;
+    document.getElementById("comment_submit").innerHTML = "Post Comment";
+  }
+  else
+  {
+    $.ajax({
+      dataType: "json",
+      url: './admin/store.php',
+      data: {type:'post_comment', uname: window.uname, uid: window.uid, vid:'34295', comment:encodeURIComponent($("#comment").val()), cid:$("#cid").val(), luid:'104'},
+      cache: false,
+      success: function(data){
+        if(data['result']=="success")
+        {
+          $("#noc").hide("slow");
+          var d = Date.now();
+          d = new Date(d);
+          d = d.getFullYear()+'-'+pad((d.getMonth()+1), 2)+'-'+pad(d.getDate(), 2)+' '+ pad(d.getHours(), 2)+':'+pad(d.getMinutes(), 2)+':'+pad(d.getSeconds(), 2);
+
+          if($("#cid").val()==0)
+          {
+            var ul = document.getElementById("comments_list");
+            var li = document.createElement("li");
+            li.setAttribute("id", "comment_"+data['cid'])
+            li.setAttribute("class", "comments_style");
+            li.insertAdjacentHTML("beforeend", '<div class="post_author"><span class="author-name">'+window.uname+'</span>&nbsp;<time datetime="2017-03-24T18:18">'+d+'</time><span class="pull-right" style="cursor:pointer;"><img src="./normal/img/delete.png" style="width:15px" onclick="delete_comment(\'comment_\','+data['cid']+')"></span></div><p>'+$("#comment").val()+'</p><span style="font-size: 12px; font-weight: 900; text-transform: uppercase; color: #66c0c2; text-decoration: none; cursor:pointer;" class="reply" onclick="reply_comment('+data['cid']+',\''+window.uname+'\');">Reply</span><ul class="children" id="reply_list_'+data['cid']+'" style="display:none;">');
+            ul.insertAdjacentElement("afterbegin",li);
+
+            var sc = $("#comment_"+data['cid']).offset().top-200;
+            $('html, body').animate({
+              scrollTop: sc
+            }, 500);
+          }
+          else
+          {
+            $("#reply_list_"+$("#cid").val()).show("slow");
+            if(document.getElementById("reply_show_btn_"+$("#cid").val()))
+            document.getElementById("reply_show_btn_"+$("#cid").val()).innerHTML = "Hide Replies";
+            var ul = document.getElementById("reply_list_"+$("#cid").val());
+            var li = document.createElement("li");
+            li.setAttribute("id", "reply_"+data['cid']);
+            li.setAttribute("class", "reply_style");
+            li.insertAdjacentHTML("beforeend", '<div class="post_author"><span class="author-name">'+window.uname+'</span>&nbsp;<time datetime="2017-03-24T18:18">'+d+'</time><span class="pull-right" style="cursor:pointer;"><img src="./normal/img/delete.png" style="width:15px" onclick="delete_comment(\'reply_\','+data['cid']+')"></span></div><p>'+$("#comment").val()+'</p>');
+            ul.appendChild(li);
+
+            var sc =  $("#reply_list_"+$("#cid").val()).offset().top-175;
+            $('html, body').animate({
+              scrollTop: sc
+            }, 1000);
+
+            var sc = $("#reply_"+data['cid']).offset().top-$("#navbar").innerHeight()-20;
+            $('html, body').animate({
+              scrollTop: sc
+            }, 500);
+          }
+
+          $("#comment").val('');
+          cancel_reply();
+        }
+        else
+        alert("Please try again");
+
+        document.getElementById("comment_submit").disabled = false;
+        document.getElementById("comment_submit").innerHTML = "Post Comment";
+      }
+    });
+  }
+}
+
+function pad(n, width, z)
+{
+  z = z || '0';
+  n = n + '';
+  return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+}
+
+function delete_comment(t,id)
+{
+  if(confirm("Are you sure, you want to delete this?"))
+  {
+    $.ajax({
+      dataType: "json",
+      url: './admin/store.php',
+      data: {type:'delete_comment', id: id, vid:'34295', uid: window.uid},
+      cache: false,
+      success: function(data){
+        if(data['result']=="success")
+        $("#"+t+id).hide("slow");
+        else
+        alert("Please try again");
+      }
+    });
+  }
+}
+
+function reply_comment(cid,name)
+{
+  document.getElementById("msg").innerHTML = "<span style='color:blue;'>Replying to "+name+"</span>&nbsp;&nbsp;<span style='color:red; cursor:pointer;' onclick='cancel_reply();'>Cancel</sapn>";
+  document.getElementById("comment_submit").innerHTML = "Reply";
+  var sc = $("#post_comment_location").offset().top-200;
+  $("html, body").animate({ scrollTop: sc }, 1000);
+  document.getElementById("cid").value = cid;
+}
+
+function cancel_reply()
+{
+  document.getElementById("msg").innerHTML = "";
+  document.getElementById("cid").value = 0;
+}
+
+function show_hide_reply(id)
+{
+  if(document.getElementById('reply_list_'+id).style.display=="none")
+  {
+    $("#reply_list_"+id).show("slow");
+    document.getElementById("reply_show_btn_"+id).innerHTML = "Hide Replies";
+  }
+  else
+  {
+    $("#reply_list_"+id).hide("slow");
+    document.getElementById("reply_show_btn_"+id).innerHTML = "Show Replies";
+  }
+
+}
+
+function add_lecture_react()
+{
+  var val = $("input:radio[name ='react_l']:checked").val();
+
+  
+}
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function iframeLoaded()
+{
+  var head = $("#eplayer_iframe").contents().find("head");
+  var css = '<style type="text/css">' +
+  '.container { max-width: 100%; padding:0px; margin:0px;}' +
+  '</style>';
+  $(head).append(css);
+
+  var iFrameID = document.getElementById('eplayer_iframe');
+  if(iFrameID) {
+    // here you can make the height, I delete it first, then I make it again
+    iFrameID.height = "";
+    iFrameID.height = iFrameID.contentWindow.document.body.scrollHeight + "px";
+  }
+}
+
+</script>
+</body>
+
+</html>
