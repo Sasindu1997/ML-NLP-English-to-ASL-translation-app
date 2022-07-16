@@ -167,7 +167,7 @@ class VADAudio(object):
                     ring_buffer.clear()
 
 
-def main(self, display):
+def main():
     # Load model
     model_path = str(Path('../models/my_model.pbmm').resolve())
     scorer = str(Path('../models/my_model_scorer.scorer').resolve())
@@ -231,7 +231,7 @@ def main(self, display):
             print("Recognized: %s" % text)
 
             # Calling text to ASL Translation model
-            if text: startTextProcessingForSingleSentence(text, self, display, player)
+            if text: startTextProcessingForSingleSentence(text, player)
             # player.vlm_del_media(url)
 
             stream_context = model.createStream()

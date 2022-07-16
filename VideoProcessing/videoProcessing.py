@@ -54,7 +54,7 @@ def processFinalVideo(VideoArray):
         return FALSE
 
 
-def outputFinalVideo(newArray, root, display, player):
+def outputFinalVideo(newArray, player):
 
 
     try:

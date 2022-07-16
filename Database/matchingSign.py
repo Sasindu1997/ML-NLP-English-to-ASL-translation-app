@@ -47,7 +47,7 @@ Input4 = 'I am fine.'
 
 # defining start function for processing
 
-def startTextProcessingForSingleSentence(Input, root, display, player):
+def startTextProcessingForSingleSentence(Input, player):
     print("Input from Danush : ", Input)
 
     result = testModelFunc(Input)
@@ -68,7 +68,7 @@ def startTextProcessingForSingleSentence(Input, root, display, player):
     clipsArray = processFinalVideo(matchedVideoURLArray)
     print('clipsArray', clipsArray)
 
-    playVideoStatus = outputFinalVideo(clipsArray, root, display, player)
+    playVideoStatus = outputFinalVideo(clipsArray, player)
 
     matchedVideoURLArray.clear()
     clipsArray.clear()
